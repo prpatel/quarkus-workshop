@@ -20,7 +20,7 @@ Quarkus is also built to bring “developer joy” and makes development in Java
 
 ### 0. Test IBM Cloud Functions From The CLI
 
-1. Run the following command to invoke a test function from the command-line.
+Run the following command to invoke a test function from the command-line.
 
    ```
    $ ibmcloud wsk action invoke whisk.system/utils/echo -p message hello --result

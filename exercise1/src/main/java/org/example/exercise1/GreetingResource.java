@@ -5,13 +5,24 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/hello")
 public class GreetingResource {
 
     @Inject
     GreetingService service;
+
+    private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
+        add("Hello");
+        add("Salut");
+        add("Hola");
+        add("Nǐ hǎo");
+    }};
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -26,4 +37,10 @@ public class GreetingResource {
         return "hello";
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/multiple")
+    public List<String> multipleGreetings() {
+        return greetingsInMultipleLangs;
+    }
 }

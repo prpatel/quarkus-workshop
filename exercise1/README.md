@@ -31,12 +31,24 @@ to something else.
 
 ### 4. Write a new JSON based method
 
-Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below are some hints/code to get you started. 
+Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below is some basic code to get you started. 
 
 ```
-@Produces("application/json")
-@Consumes("application/json")
-@Path("/multipleGreetings")
+
+// create a list to show some data
+private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
+    add("Hello");
+    add("Salut");
+    add("Hola");
+    add("Nǐ hǎo");
+}};
+   
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/multiple")
+public List<String> multipleGreetings() {
+    return greetingsInMultipleLangs;
+}
 
 ```
 

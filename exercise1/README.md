@@ -54,8 +54,15 @@ public List<String> multipleGreetings() {
 
 [Quarkus REST Guide](https://quarkus.io/guides/rest-json)
 
-### 5. Connect to and use a Database! 
-Go to the Exercise5/ folder and follow the instructions there. 
+Now when you go to: http://localhost:8080/hello/multiple you should see some JSON. We suggest using Firefox as it has a nice built in JSON response viewer.
 
-### 6. Easy integration tests with TestContainers 
-Go to the Exercise6/ folder and follow the instructions there. 
+### 5. Explore CDI (dependency injection) 
+You probably noticed a GreetingService.java file in the same dir as GreetingResource.java. The service was injected in using this annotation:
+```
+@Inject
+GreetingService service; 
+```
+And was used later in a method like this: service.greeting(name)
+
+Go and change the return value of greeting method in the service and hit the /greeting/{name} endpoint, see what happens.
+     

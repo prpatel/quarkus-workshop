@@ -36,10 +36,10 @@ Run the following command to invoke a test function from the command-line.
 ### 1. Build your first Quarkus app!
 Go to the Exercise1/ folder and follow the instructions there. 
 
-### 2. Create a RESTful endpoint
+### 2. Deploy the app to IBM Cloud Functions 
 Go to the Exercise2/ folder and follow the instructions there.
 
-### 3. Deploy the app to IBM Cloud Functions 
+### 3. Create a RESTful endpoint
 Go to the Exercise3/ folder and follow the instructions there. 
 
 ### 4. Write unit tests using RESTassured

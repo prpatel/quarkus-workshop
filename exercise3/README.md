@@ -107,4 +107,8 @@ Here are some curl commands to get you going!
 
 
 
-### [<< Back](../Exercise2/README.md) [Index](/README.md) [Next >>](../Exercise4/README.md)
+<p  align="center">
+	<font size="4">
+ 		<a href="../exercise2/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise4/">Next >></a></td>
+ </font>
+</p>

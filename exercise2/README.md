@@ -40,4 +40,8 @@ Pull this up in a web browser! Try some of the endpoints you created, they shoul
 Invoke the new JSON enabled endpoint  you did in exercise 1 against both the local and Cloud Fn instance using curl.
 
 
-### [<< Back](../Exercise1/README.md) [Index](/README.md) [Next >>](../Exercise3/README.md)
+<p  align="center">
+	<font size="4">
+ 		<a href="../exercise1/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise3/">Next >></a></td>
+ </font>
+</p>

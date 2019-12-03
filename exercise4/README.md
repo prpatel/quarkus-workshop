@@ -146,4 +146,8 @@ We've implemented testGetOne. Remember you are testing the actual endpoint resul
 
 
 
-### [<< Back](../Exercise3/README.md) [Index](/README.md) [Next >>](../Exercise5/README.md)
+<p  align="center">
+	<font size="4">
+ 		<a href="../exercise3/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise5/">Next >></a></td>
+ </font>
+</p>

@@ -141,5 +141,8 @@ Add another method to get a single value from greetingsInMultipleLangs. Here's a
 
 ```    
 
-
-### [<< Back](../Exercise4/README.md) [Index](/README.md) [Next >>](../Exercise6/README.md)
+<p  align="center">
+	<font size="4">
+ 		<a href="../exercise4/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise6/">Next >></a></td>
+ </font>
+</p>

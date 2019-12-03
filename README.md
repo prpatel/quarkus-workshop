@@ -35,24 +35,24 @@ Run the following command to invoke a test function from the command-line.
 
 ### 1. Build your first Quarkus app!
 
-[Instructions here](Exercise1/README.md)
+[Instructions here](exercise1/)
 
 ### 2. Deploy the app to IBM Cloud Functions 
 
-[Instructions here](Exercise2/README.md)
+[Instructions here](exercise2/)
 
 ### 3. Create a RESTful endpoint
 
-[Instructions here](Exercise3/README.md)
+[Instructions here](exercise3/)
 
 ### 4. Write unit tests using RESTassured
 
-[Instructions here](Exercise4/README.md)
+[Instructions here](exercise4/)
 
 ### 5. Connect to and use a Database! 
 
-[Instructions here](Exercise5/README.md)
+[Instructions here](exercise5/)
 
 ### 6. Easy integration tests with TestContainers 
 
-[Instructions here](Exercise6/README.md)
+[Instructions here](exercise6/)

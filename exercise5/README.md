@@ -1,4 +1,4 @@
-# Exercise 3
+# Exercise 5
 ## Create a full RESTful endpoint
 
 In this exercise, we will create a full REST endpoint !
@@ -7,13 +7,14 @@ In this exercise, we will create a full REST endpoint !
 
 
    ```
-   mvn quarkus:dev
+   ./mvnw quarkus:dev
    ```
 
 > keep this running in a separate terminal window throughout this exercise!
 
 ### 1. View app in web browser
 http://localhost:8080/tag
+
 http://localhost:8080/tag/1
 
 ### 2. Look at the code for this RESTful endpoint
@@ -139,3 +140,9 @@ Add another method to get a single value from greetingsInMultipleLangs. Here's a
 ...
 
 ```    
+
+<p  align="center">
+	<font size="4">
+ 		<a href="../exercise4/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/../../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise6/">Next >></a></td>
+ </font>
+</p>

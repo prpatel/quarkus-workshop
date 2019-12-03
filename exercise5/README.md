@@ -1,7 +1,7 @@
-# Exercise 1
-## Run and hack on a Quarkus project
+# Exercise 3
+## Create a full RESTful endpoint
 
-In this exercise, we will run a Quarkus project and play with it to get familiar with some basic commands and constructs!
+In this exercise, we will create a full REST endpoint !
 
 ### 0. Start Quarkus in Dev mode
 
@@ -13,14 +13,76 @@ In this exercise, we will run a Quarkus project and play with it to get familiar
 > keep this running in a separate terminal window throughout this exercise!
 
 ### 1. View app in web browser
-Go to http://localhost:8080/hello 
+http://localhost:8080/tag
+http://localhost:8080/tag/1
 
-### 2. Look at the code for the RESTful endpoint
-Open this project in a Java editor/IDE
+### 2. Look at the code for this RESTful endpoint
 
-Open exercise1/src/main/java/org/example/exercise1/GreetingResource.java
+``` 
+@Path("/tag")
+@Produces("application/json")
+@Consumes("application/json")
+public class TagResource {
 
-### 3. Play around with hot-reloading 
+  @OPTIONS
+  public Response opt() {
+    return Response.ok().build();
+  }
+
+  @GET
+  public List<Tag> getAll() {
+    return Tag.listAll();
+  }
+
+  @GET
+  @Path("/{id}")
+  public Response getOne(@PathParam("id") Long id) {
+    Tag entity = Tag.findById(id);
+    if (entity == null) {
+      return Response
+        .status(Response.Status.NOT_FOUND)
+        .build();
+    }
+    return Response
+      .status(Response.Status.OK)
+      .entity(entity)
+      .build();
+  }
+
+  @POST
+  @Transactional
+  public Response create(Tag tag) {
+    tag.persist();
+    return Response.status(Response.Status.CREATED).entity(tag).build();
+  }
+
+  @PUT
+  @Path("/{id}")
+  @Transactional
+  public Response update(Tag tag, @PathParam("id") Long id) {
+    Tag entity = Tag.findById(id);
+    entity.name = tag.name;
+    entity.persist();
+    return Response.ok(entity).build();
+  }
+
+  @DELETE
+  @Transactional
+  @Path("/{id}")
+  public Response deleteOne(@PathParam("id") Long id) {
+    Tag entity = Tag.findById(id);
+    if (entity == null) {
+      return Response
+        .status(Response.Status.NOT_FOUND)
+        .build();
+    }
+    entity.delete();
+    return Response.noContent().build();
+  }
+```
+
+
+### 3. Implement the GreetingResource RESTful endpoint 
 Change the String in the last line:
 
 ```return "hello" ```

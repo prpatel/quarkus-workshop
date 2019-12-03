@@ -34,4 +34,8 @@ https://us-south.functions.cloud.ibm.com/api/v1/web/...../default/quarkustest
 
 Pull this up in a web browser! Try some of the endpoints you created, they should all work (for example https://..../hello/multiple).
 
-> Note that you can not use the standard "wsk action invoke ..." command with this special proxy Apache OpenWhisk docker image. Only Web actions are allowed. 
+> Note that you can not use the standard "fn action invoke ..." command with this special proxy Apache OpenWhisk docker image. Only Web actions are allowed. 
+> You can, however use a curl / postman / etc call!
+
+### EXTRA CREDIT
+Invoke the new JSON enabled endpoint  you did in exercise 1 against both the local and Cloud Fn instance using curl.

@@ -81,6 +81,6 @@ Add another method to get a single value from `greetingsInMultipleLangs`. Here's
 
 <p  align="center">
 	<font size="4">
- 		<a href="../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise2/">Next >></a></td>
+ 		<a href="/">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise2/">Next >></a></td>
  </font>
 </p>

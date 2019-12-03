@@ -1,4 +1,4 @@
-# Exercise 3
+# Exercise 4
 ## Write tests for our REST endpoint
 
 In this exercise, we will write some tests using RESTassured
@@ -7,7 +7,7 @@ In this exercise, we will write some tests using RESTassured
 
 
    ```
-   mvn test
+   ./mvnw test
    ```
 
 > run this as you write test cases!
@@ -143,3 +143,7 @@ public class ArticleResourceTest {
 We've implemented testGetOne. Remember you are testing the actual endpoint results.
 
 > Run "mvn test" as you're developing the tests. You can also test using your IDE if you wish.
+
+
+
+### [<< Back](../Exercise3/README.md) [Index](/README.md) [Next >>](../Exercise5/README.md)

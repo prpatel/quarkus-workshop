@@ -34,19 +34,25 @@ Run the following command to invoke a test function from the command-line.
 *If this command executes successfully, you have verified that the IBM Cloud CLI and Cloud Functions plugin have been installed and configured correctly. If this does not work, please contact the workshop organiser to provide assistance!*
 
 ### 1. Build your first Quarkus app!
-Go to the Exercise1/ folder and follow the instructions there. 
+
+[Instructions here](Exercise1/README.md)
 
 ### 2. Deploy the app to IBM Cloud Functions 
-Go to the Exercise2/ folder and follow the instructions there.
+
+[Instructions here](Exercise2/README.md)
 
 ### 3. Create a RESTful endpoint
-Go to the Exercise3/ folder and follow the instructions there. 
+
+[Instructions here](Exercise3/README.md)
 
 ### 4. Write unit tests using RESTassured
-Go to the Exercise4/ folder and follow the instructions there. 
+
+[Instructions here](Exercise4/README.md)
 
 ### 5. Connect to and use a Database! 
-Go to the Exercise5/ folder and follow the instructions there. 
+
+[Instructions here](Exercise5/README.md)
 
 ### 6. Easy integration tests with TestContainers 
-Go to the Exercise6/ folder and follow the instructions there. 
+
+[Instructions here](Exercise6/README.md)

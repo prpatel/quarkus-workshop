@@ -7,13 +7,13 @@ In this exercise, we will run a Quarkus project and play with it to get familiar
 
 
    ```
-   mvn quarkus:dev
+   ./mvnw quarkus:dev
    ```
 
 > keep this running in a separate terminal window throughout this exercise!
 
 ### 1. View app in web browser
-Go to http://localhost:8080/hello 
+Go to http://localhost:8080/hello
 
 ### 2. Look at the code for the RESTful endpoint
 Open this project in a Java editor/IDE
@@ -67,7 +67,7 @@ And was used later in a method like this: service.greeting(name)
 Go and change the return value of greeting method in the service and hit the /greeting/{name} endpoint, see what happens.
      
 ### EXTRA CREDIT
-Add another method to get a single value from greetingsInMultipleLangs. Here's a hint:
+Add another method to get a single value from `greetingsInMultipleLangs`. Here's a hint:
 
 ```
   @GET
@@ -77,3 +77,6 @@ Add another method to get a single value from greetingsInMultipleLangs. Here's a
 ...
 
 ```    
+
+
+### [Index](/README.md) [Next >>](../Exercise2/README.md)

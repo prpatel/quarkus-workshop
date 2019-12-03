@@ -7,10 +7,8 @@ In this exercise, we will run deploy your Quarkus project to IBM Cloud Functions
 Build a jar file and get it ready for deployment. Run the following command in the previous exercise1 folder where you were working:
 
    ```
-   mvn install
+   ./mvnw install
    ```
-
-> You may get a unit test failure if you changed the return value for the hello() method. Change it back to just "hello".
 
 ### Create an IBM Cloud function with this code
 
@@ -28,6 +26,7 @@ ibmcloud fn action get quarkustest --url
 ```
 
 This should return something like this:
+
 ```
 https://us-south.functions.cloud.ibm.com/api/v1/web/...../default/quarkustest
 ```
@@ -39,3 +38,6 @@ Pull this up in a web browser! Try some of the endpoints you created, they shoul
 
 ### EXTRA CREDIT
 Invoke the new JSON enabled endpoint  you did in exercise 1 against both the local and Cloud Fn instance using curl.
+
+
+### [<< Back](../Exercise1/README.md) [Index](/README.md) [Next >>](../Exercise3/README.md)

@@ -7,13 +7,14 @@ In this exercise, we will create a full REST endpoint !
 
 
    ```
-   mvn quarkus:dev
+   ./mvnw quarkus:dev
    ```
 
 > keep this running in a separate terminal window throughout this exercise!
 
 ### 1. View app in web browser
 http://localhost:8080/greeting
+
 http://localhost:8080/greeting/1
 
 ### 2. Look at the code below for this RESTful endpoint 
@@ -103,3 +104,7 @@ Here are some curl commands to get you going!
 > curl -v -H "Content-type: application/json" -d "{\"name\":\"Containers\"}" -X POST http://localhost:8080/greeting
      
 ### EXTRA CREDIT
+
+
+
+### [<< Back](../Exercise2/README.md) [Index](/README.md) [Next >>](../Exercise4/README.md)

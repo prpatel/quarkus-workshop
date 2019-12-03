@@ -10,7 +10,9 @@ In this exercise, we will write some tests using RESTassured
    mvn test
    ```
 
-> keep this running in a separate terminal window throughout this exercise!
+> run this as you write test cases!
+
+> You can work here by copying over the GreetingResource from exercise3, or just work in the exercise3 folder
 
 ### 1. Examine this sample (full) test class
 

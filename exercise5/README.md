@@ -123,6 +123,29 @@ public class TagEntityTest {
 
 ```    
 
+### EXTRA EXTRA CREDIT
+
+Create a many-to-many relationship between Article and Tag. Think of a blog article where you want to have multiple tags, and a tag can be linked to multiple Articles. Below is some code to make it happen - don't forget to amend import.sql with some seed data once you have it all coded.
+
+``` 
+
+// Article owns the relationship
+  @ManyToMany(cascade = { CascadeType.PERSIST,
+    CascadeType.MERGE }, fetch = FetchType.EAGER)
+  @JoinTable(
+    name = "article_tag",
+    joinColumns = { @JoinColumn(name = "article_id") },
+    inverseJoinColumns = { @JoinColumn(name = "tag_id") }
+  )
+  public Set<Tag> tags = new HashSet<>();
+
+
+// Tag refers back to Article
+  @ManyToMany(mappedBy = "tags", fetch = FetchType.LAZY)
+  Set<Article> articles = new HashSet<>();
+
+``` 
+
 <p  align="center">
 	<font size="4">
  		<a href="../exercise4/"><< Back</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/../../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise6/">Next >></a></td>

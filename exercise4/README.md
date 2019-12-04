@@ -12,7 +12,7 @@ In this exercise, we will write some tests using RESTassured
 
 > run this as you write test cases!
 
-> You can work here by copying over the GreetingResource from exercise3, or just work in the exercise3 folder
+> You can work here by copying over the GreetingResource from exercise3, or just work in this exercise4 folder
 
 ### 1. Examine this sample (full) test class
 

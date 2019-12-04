@@ -1,7 +1,8 @@
 # Exercise 5
-## Create a full RESTful endpoint
+## Connect to and use a Database!
 
-In this exercise, we will create a full REST endpoint !
+
+In this exercise, we will use Panache, a feature of Quarkus that allows fast and smooth database integration!
 
 ### 0. Start Quarkus in Dev mode
 
@@ -12,132 +13,113 @@ In this exercise, we will create a full REST endpoint !
 
 > keep this running in a separate terminal window throughout this exercise!
 
-### 1. View app in web browser
-http://localhost:8080/tag
+### 1. Configure database access
 
-http://localhost:8080/tag/1
-
-### 2. Look at the code for this RESTful endpoint
+We've already configured for you a in-memory H2 database in resources/application.properties. We'll connect to a postgres DB in the next exercise.
 
 ``` 
-@Path("/tag")
-@Produces("application/json")
-@Consumes("application/json")
-public class TagResource {
+quarkus.datasource.url = jdbc:h2:mem:blog
+quarkus.datasource.driver = org.h2.Driver
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.log.sql=true
+```
 
-  @OPTIONS
-  public Response opt() {
-    return Response.ok().build();
-  }
+### 2. Look at the code for a Panache entity bean
 
-  @GET
-  public List<Tag> getAll() {
-    return Tag.listAll();
-  }
+Have a look at:
+org.example.exercise5/Tag.java
 
+You can see we've extended PanacheEntity, and have the standard JPA @Entity annotation on it. This PanacheEntity uses Hibernate underneath the hood as the ORM engine.
+
+Also have a look at:
+org.example.exercise5/TagResource.java
+
+This is our RESTful endpoint for the Tag database-aware object.
+
+Fire up Quarkus in dev mode if you haven't already:
+
+   ```
+   ./mvnw quarkus:dev
+   ```
+
+then go to:
+
+http://localhost:8080/tag
+
+We've pre-seeded the database with some initial entries using the resources/import.sql file.
+
+### 3. Implement a new Entity class called Article
+
+Create a new Entity object called Article. Add these persistent fields to it:
+
+```
+  @NotBlank
+  public String title;
+  public String subtitle;
+  public String linktotweet;
+  public String coverImage;
+  public int likes;
+  @NotBlank
+  public String asciidocsource;
+```
+
+### 4. Write a new RESTful endpoint called ArticleResource
+
+Create a new file ArticleResource.java and create some RESTful endpoints to use the Article entity object. Refer to the code fragment below and the guide link below to get going. Name your RESTful endpoint "/article". Jave a look at TagResource.java for some inspiration!
+
+```
   @GET
   @Path("/{id}")
   public Response getOne(@PathParam("id") Long id) {
-    Tag entity = Tag.findById(id);
+    Article entity = Article.findById(id);
     if (entity == null) {
       return Response
         .status(Response.Status.NOT_FOUND)
         .build();
     }
+
     return Response
       .status(Response.Status.OK)
       .entity(entity)
       .build();
   }
 
-  @POST
+```
+
+[Quarkus Panache Guide](https://quarkus.io/guides/)
+
+Go to: http://localhost:8080/article to test out your Resource and Entity!
+
+### EXTRA CREDIT 
+
+Write some unit tests! Below you'll see a sample test for the Tag entity. Create one to test the CRUD operations for Article.
+
+
+```
+@QuarkusTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class TagEntityTest {
+
+  public boolean somevar = false;
+
+  @Test
+  @Order(0)
   @Transactional
-  public Response create(Tag tag) {
+  public void testAddAndGetTags() {
+    Tag tag = new Tag();
+    tag.name ="BIG DATA";
     tag.persist();
-    return Response.status(Response.Status.CREATED).entity(tag).build();
+    assertEquals(tag.name, "BIG DATA");
+
+    List<Tag> foundTags = Tag.listAll();
+    assertEquals(foundTags.size(), 8);
+
+    foundTags = Tag.list("order by id");
+    assertEquals(foundTags.get(0).name, "Java");
   }
 
-  @PUT
-  @Path("/{id}")
-  @Transactional
-  public Response update(Tag tag, @PathParam("id") Long id) {
-    Tag entity = Tag.findById(id);
-    entity.name = tag.name;
-    entity.persist();
-    return Response.ok(entity).build();
-  }
-
-  @DELETE
-  @Transactional
-  @Path("/{id}")
-  public Response deleteOne(@PathParam("id") Long id) {
-    Tag entity = Tag.findById(id);
-    if (entity == null) {
-      return Response
-        .status(Response.Status.NOT_FOUND)
-        .build();
-    }
-    entity.delete();
-    return Response.noContent().build();
-  }
-```
-
-
-### 3. Implement the GreetingResource RESTful endpoint 
-Change the String in the last line:
-
-```return "hello" ```
-
-to something else. 
-
-> Do not restart the anything, simply go to the web browser, and hit reload. Quarkus automatically loads your changes without restarting the app server!
-
-### 4. Write a new JSON based method
-
-Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below is some basic code to get you started. 
-
-```
-
-// create a list to show some data
-private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
-    add("Hello");
-    add("Salut");
-    add("Hola");
-    add("Nǐ hǎo");
-}};
-   
-@GET
-@Produces(MediaType.APPLICATION_JSON)
-@Path("/multiple")
-public List<String> multipleGreetings() {
-    return greetingsInMultipleLangs;
 }
 
-```
-
-[Quarkus REST Guide](https://quarkus.io/guides/rest-json)
-
-Now when you go to: http://localhost:8080/hello/multiple you should see some JSON. We suggest using Firefox as it has a nice built in JSON response viewer.
-
-### 5. Explore CDI (dependency injection) 
-You probably noticed a GreetingService.java file in the same dir as GreetingResource.java. The service was injected in using this annotation:
-```
-@Inject
-GreetingService service; 
-```
-And was used later in a method like this: service.greeting(name)
-
-Go and change the return value of greeting method in the service and hit the /greeting/{name} endpoint, see what happens.
-     
-### EXTRA CREDIT
-Add another method to get a single value from greetingsInMultipleLangs. Here's a hint:
-
-```
-  @GET
-  @Path("/{id}")
-  public String getOne(@PathParam("id") Long id) {
-
-...
 
 ```    
 

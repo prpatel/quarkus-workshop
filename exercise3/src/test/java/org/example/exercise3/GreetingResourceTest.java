@@ -1,4 +1,4 @@
-package org.example.exercise1;
+package org.example.exercise3;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

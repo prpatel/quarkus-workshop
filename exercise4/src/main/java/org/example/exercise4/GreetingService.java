@@ -1,4 +1,4 @@
-package org.example.exercise3;
+package org.example.exercise4;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
@@ -31,7 +31,9 @@ public class GreetingService {
         greetingsInMultipleLangs.remove(index);
     }
 
-    public void update(int index, String greeting) {
+    public String update(int index, String greeting) {
+
         greetingsInMultipleLangs.set(index, greeting);
+        return greeting;
     }
 }

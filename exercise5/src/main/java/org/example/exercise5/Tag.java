@@ -1,4 +1,4 @@
-package org.example.exercise3;
+package org.example.exercise5;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import org.hibernate.annotations.NaturalId;

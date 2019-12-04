@@ -1,4 +1,4 @@
-package org.example.exercise4;
+package org.example.exercise5;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -15,6 +15,7 @@ public class GreetingResource {
     GreetingService service;
 
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public List<String> getAll() {
         return service.getAll();
     }
@@ -34,29 +35,4 @@ public class GreetingResource {
                 .build();
     }
 
-    @POST
-    public Response create(String name) {
-        String entity = service.add(name);
-        return Response.status(Response.Status.CREATED).entity(entity).build();
-    }
-
-    @PUT
-    @Path("/{id}")
-    public Response update(String name, @PathParam("id") int id) {
-        String entity = service.update(id, name);
-        return Response.ok(entity).build();
-    }
-
-    @DELETE
-    @Path("/{id}")
-    public Response deleteOne(@PathParam("id") int id) {
-        String entity = service.get(id);
-        if (entity == null) {
-            return Response
-                    .status(Response.Status.NOT_FOUND)
-                    .build();
-        }
-        service.delete(id);
-        return Response.noContent().build();
-    }
 }

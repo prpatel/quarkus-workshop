@@ -1,4 +1,4 @@
-package org.example.exercise4;
+package org.example.exercise5;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,5 @@ public class GreetingResourceTest {
              .statusCode(200)
              .body(is("Salut"));
     }
-
-
 
 }

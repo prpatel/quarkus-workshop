@@ -15,7 +15,6 @@ public class GreetingResource {
     GreetingService service;
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
     public List<String> getAll() {
         return service.getAll();
     }

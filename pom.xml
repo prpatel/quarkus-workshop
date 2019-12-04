@@ -10,5 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>exercise1</module>
+        <module>exercise3</module>
+        <module>exercise4</module>
+        <module>exercise5</module>
+        <module>exercise6</module>
     </modules>
 </project>

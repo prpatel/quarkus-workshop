@@ -1,4 +1,4 @@
-package org.example.exercise3;
+package org.example.exercise5;
 
 
 import io.quarkus.panache.common.Sort;

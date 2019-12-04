@@ -142,6 +142,8 @@ public class ArticleResourceTest {
 
 We've implemented testGetOne. Remember you are testing the actual endpoint results.
 
+You will code this test in the "GreetingResourceTest.java" file under the test/ folder.
+
 > Run "mvn test" as you're developing the tests. You can also test using your IDE if you wish.
 
 

@@ -31,7 +31,9 @@ public class GreetingService {
         greetingsInMultipleLangs.remove(index);
     }
 
-    public void update(int index, String greeting) {
+    public String update(int index, String greeting) {
+
         greetingsInMultipleLangs.set(index, greeting);
+        return greeting;
     }
 }

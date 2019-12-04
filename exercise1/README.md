@@ -7,13 +7,13 @@ In this exercise, we will run a Quarkus project and play with it to get familiar
 
 
    ```
-   mvn quarkus:dev
+   ./mvnw quarkus:dev
    ```
 
 > keep this running in a separate terminal window throughout this exercise!
 
 ### 1. View app in web browser
-Go to http://localhost:8080/hello 
+Go to http://localhost:8080/hello
 
 ### 2. Look at the code for the RESTful endpoint
 Open this project in a Java editor/IDE
@@ -31,19 +31,56 @@ to something else.
 
 ### 4. Write a new JSON based method
 
-Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below are some hints/code to get you started. 
+Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below is some basic code to get you started. 
 
 ```
-@Produces("application/json")
-@Consumes("application/json")
-@Path("/multipleGreetings")
+
+// create a list to show some data
+private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
+    add("Hello");
+    add("Salut");
+    add("Hola");
+    add("Nǐ hǎo");
+}};
+   
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/multiple")
+public List<String> multipleGreetings() {
+    return greetingsInMultipleLangs;
+}
 
 ```
 
 [Quarkus REST Guide](https://quarkus.io/guides/rest-json)
 
-### 5. Connect to and use a Database! 
-Go to the Exercise5/ folder and follow the instructions there. 
+Now when you go to: http://localhost:8080/hello/multiple you should see some JSON. We suggest using Firefox as it has a nice built in JSON response viewer.
 
-### 6. Easy integration tests with TestContainers 
-Go to the Exercise6/ folder and follow the instructions there. 
+### 5. Explore CDI (dependency injection) 
+You probably noticed a GreetingService.java file in the same dir as GreetingResource.java. The service was injected in using this annotation:
+```
+@Inject
+GreetingService service; 
+```
+And was used later in a method like this: service.greeting(name)
+
+Go and change the return value of greeting method in the service and hit the /greeting/{name} endpoint, see what happens.
+     
+### EXTRA CREDIT
+Add another method to get a single value from `greetingsInMultipleLangs`. Here's a hint:
+
+```
+  @GET
+  @Path("/{id}")
+  public String getOne(@PathParam("id") Long id) {
+
+...
+
+```    
+
+
+<p  align="center">
+	<font size="4">
+ 		<a href="/../../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise2/">Next >></a></td>
+ </font>
+</p>

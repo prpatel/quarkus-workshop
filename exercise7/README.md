@@ -38,9 +38,19 @@ The ArticleResouce class sends the message - have a look at its setup.
 
 ### 2. Examine the Quarkus-Kafka configuration
 
-Have a look at the application.properties file
+Have a look at the application.properties file to see how all this is setup!
 
+### 3. Implement a periodic FLowable
 
+Follow this guide:
+https://quarkus.io/guides/kafka
 
-### EXTRA CREDIT 
+### EXTRA CREDIT - Kafka Streams
 
+Follow this guide to get learn how to implement Kafka Streams and processing in Quarkus:
+
+https://quarkus.io/guides/kafka-streams
+
+### EXTRA EXTRA CREDIT
+
+Write unit tests using Kafka TestContainers! Have a look at the KafkaEnvironment.java to help you get started.

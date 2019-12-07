@@ -43,7 +43,7 @@ Notice in the log output how the TestContainers are starting up a docker postgre
 
 ### EXTRA CREDIT 
 
-Write tests for Article and finish the TagEntity tests. Try writing some tests that exercise the relationship between Article and Tag entity objects.
+Write tests for Article entity and finish the TagEntity tests. Try writing some tests that exercise the relationship between Article and Tag entity objects.
 
 Write some tests that fetch Article based on tag. Do you need to modify the TagResource to traverse the relationship?
 

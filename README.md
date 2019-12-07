@@ -55,5 +55,7 @@ Run the following command to invoke a test function from the command-line.
 
 ### 6. Easy integration tests with TestContainers 
 
+[Instructions here](exercise6/)
+
 ### 7. Messaging with Kafka
 [Instructions here](exercise7/)

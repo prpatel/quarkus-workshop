@@ -19,7 +19,7 @@ public class ArticleResource {
 
 
   @Inject
-  @Stream("emails") // Emit on the channel 'orders'
+  @Stream("emails") // Emit on the channel 'emails'
           Emitter<String> emails;
 
   @OPTIONS

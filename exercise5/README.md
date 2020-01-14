@@ -63,9 +63,13 @@ Create a new Entity object called Article. Add these persistent fields to it:
   public String asciidocsource;
 ```
 
+As we are using an im-memory H2 database, and have set the underlying JPA impl to `drop-and-create` it will create the database table/fields when you restart quarkus. 
+
 ### 4. Write a new RESTful endpoint called ArticleResource
 
-Create a new file ArticleResource.java and create some RESTful endpoints to use the Article entity object. Refer to the code fragment below and the guide link below to get going. Name your RESTful endpoint "/article". Jave a look at TagResource.java for some inspiration!
+Create a new file ArticleResource.java and create some RESTful endpoints to use the Article entity object. Refer to the code fragment below and the guide link below to get going. Name your RESTful endpoint "/article". Have a look at TagResource.java for some inspiration!
+
+Here is the RESTful endpoint to get one Article entity object to get you started:
 
 ```
   @GET
@@ -86,9 +90,33 @@ Create a new file ArticleResource.java and create some RESTful endpoints to use 
 
 ```
 
-[Quarkus Panache Guide](https://quarkus.io/guides/)
+And a RESTful endpoint to create an Article object:
+``` 
+  @POST
+  @Transactional
+  public Response create(Article article) {
+    article.persist();
+    return Response.status(Response.Status.CREATED).entity(article).build();
+  }
+```
 
 Go to: http://localhost:8080/article to test out your Resource and Entity!
+
+Here's a curl command to add an Article per the above datamodel:
+> curl  -H "Content-type: application/json" -d "{\"title\":\"Quarkus test\", \"asciidocsource\":\"https://somesource/\"}" -X POST http://localhost:8080/article
+
+[Quarkus Panache Guide](https://quarkus.io/guides/)
+
+
+### 5. Add more RESTful endpoints to complete the ArticleResource and exercise the JPA object
+
+Add these into ArticleResource:
+
+``` 
+public List<Article> getAll ...
+public Response update ...
+public Response deleteOne ...
+```
 
 ### EXTRA CREDIT 
 

@@ -1,4 +1,4 @@
-# Exercise 1
+# Exercise 1a
 ## Run and hack on a Quarkus project
 
 In this exercise, we will run a Quarkus project and play with it to get familiar with some basic commands and constructs!
@@ -29,58 +29,51 @@ to something else.
 
 > Do not restart the anything, simply go to the web browser, and hit reload. Quarkus automatically loads your changes without restarting the app server!
 
-### 4. Write a new JSON based method
+### 4. Create an executable JAR file
 
-Create a new method called "multipleGreetings" that sends a list of greetings in different languages, as JSON. Below is some basic code to get you started. 
+   ```
+   ./mvnw package
+   ```
+Then see what was produced, look into the target directory:
 
-```
+   ```
+    // unix
+   ls -l target
 
-// create a list to show some data
-private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
-    add("Hello");
-    add("Salut");
-    add("Hola");
-    add("Nǐ hǎo");
-}};
-   
-@GET
-@Produces(MediaType.APPLICATION_JSON)
-@Path("/multiple")
-public List<String> multipleGreetings() {
-    return greetingsInMultipleLangs;
-}
+    // windows
+    dir target
+   ```
 
 ```
-
-[Quarkus REST Guide](https://quarkus.io/guides/rest-json)
-
-Now when you go to: http://localhost:8080/hello/multiple you should see some JSON. We suggest using Firefox as it has a nice built in JSON response viewer.
-
-### 5. Explore CDI (dependency injection) 
-You probably noticed a GreetingService.java file in the same dir as GreetingResource.java. The service was injected in using this annotation:
+╰─ ls -1 target 
+classes
+exercise1a-1.0-SNAPSHOT-runner.jar
+exercise1a-1.0-SNAPSHOT.jar
+generated-sources
+generated-test-sources
+lib
+maven-archiver
+maven-status
+quarkus
+surefire-reports
+test-classes
 ```
-@Inject
-GreetingService service; 
-```
-And was used later in a method like this: service.greeting(name)
 
-Go and change the return value of greeting method in the service and hit the /greeting/{name} endpoint, see what happens.
-     
-### EXTRA CREDIT
-Add another method to get a single value from `greetingsInMultipleLangs`. Here's a hint:
+The *-runner is the file we can use to run the app!
+
+### Run the application in standard mode
 
 ```
-  @GET
-  @Path("/{id}")
-  public String getOne(@PathParam("id") Long id) {
+java -jar target/exercise1a-1.0-SNAPSHOT-runner.jar 
 
-...
+```
+Look for this on the first line:
+" started in 0.663s. "
 
-```    
-
+> Note how quickly this Quarkus application starts up!
 
 <p  align="center">
 	<font size="4">
- 		<a href="/../../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise2/">Next >></a></td>
+ 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="/../../">Index</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../exercise2/">Next >></a></td>
  </font>
 </p>

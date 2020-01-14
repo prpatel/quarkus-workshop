@@ -13,7 +13,7 @@ You'll need to have docker installed for this exercise. Run this to start up pos
 Then start up a Kafka instance
 
 ``` 
-in the kafka/ folder, run:
+in the kafka/ folder (at the root of this workshop), run:
 docker-compose up
 ```
 
@@ -34,16 +34,24 @@ curl  -H "Content-type: application/json" -d "{\"title\":\"Kafka test\", \"ascii
 
 There's a consumer in EmailGenerator.java that prints out what is being read from the topic.
 
-The ArticleResouce class sends the message - have a look at its setup.
+The ArticleResouce class sends the message - have a look at its setup. There is an `Emitter` that provides a Java service object into Kafka.
+
+Look at the terminal window where you started Quarkus and you'll see the output:
+``` 
+Received message on Kafka topic 'emails':
+```
+
+Now change the ArticleResource and customize the message payload on this ine:
+```
+emails.send("Send an email for article with id:" ...
+```
+
+To send a different message. Then create another Article using the curl command above... note how we still have hot reloading enabled, even for this project that integrates with Kafka!
 
 ### 2. Examine the Quarkus-Kafka configuration
 
 Have a look at the application.properties file to see how all this is setup!
 
-### 3. Implement a periodic FLowable
-
-Follow this guide:
-https://quarkus.io/guides/kafka
 
 ### EXTRA CREDIT - Kafka Streams
 

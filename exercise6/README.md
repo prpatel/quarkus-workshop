@@ -39,7 +39,7 @@ ArticleResourceTest
 
 TagEntityTest
 
-Notice in the log output how the TestContainers are starting up a docker postgres instance.
+> Notice in the test log output how the TestContainers are starting up a docker postgres instance.
 
 ### EXTRA CREDIT 
 

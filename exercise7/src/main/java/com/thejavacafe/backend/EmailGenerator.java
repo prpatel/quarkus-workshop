@@ -24,7 +24,7 @@ public class EmailGenerator {
     public CompletionStage<Void> consume(org.eclipse.microprofile.reactive.messaging.Message msg) {
 //        LOGGER.info("Received message on topic and partition) with key and value:" + msg.getTopic() + "\n" + msg.getPartition()+ "\n" + msg.getKey()+ "\n" + msg.getPayload());
 
-        LOGGER.info("Received message on topic 'emails': \n" + msg.getPayload());
+        LOGGER.info("Received message on Kafka topic 'emails': \n" + msg.getPayload());
         return msg.ack();
     }
 }

@@ -1,7 +1,7 @@
 # Exercise 4
 ## Write tests for our REST endpoint
 
-In this exercise, we will write some tests using RESTassured
+In this exercise, we will write some tests using RESTassured for the GreetingResource we constructed in Exercise 3.
 
 ### 0. Running tests
 
@@ -14,12 +14,52 @@ In this exercise, we will write some tests using RESTassured
 
 > You can work here by copying over the GreetingResource from exercise3, or just work in this exercise4 folder
 
-### 1. Examine this sample (full) test class
+### 1. Examine the sample (full) test class
+
+At the bottom of this README, we've included a sample test class that exercises all of the RESTful endpoints in a Resource.
+
+> Remember that the above example uses JPA. For what you're doing here, you won't need @Transactional, and you will use the GreetingService to work with the "database"
+
+Here's an explanation of the one we've already done:
+
+``` 
+    @Test
+    public void testGetOne() {
+        given()
+          .when().get("/greeting/1")
+          .then()
+             .statusCode(200)
+             .body(is("Salut"));
+    }
+```
+
+You can see wee pass the param in the "URL" that we wish to test: `/greeting/1`
+
+".then"
+
+we check the status code. and check that the body is what we expect: `Salut`.
+
+### 3. Implement tests for all of the endpoints  
+
+We've implemented testGetOne. Remember you are testing the actual endpoint results.
+
+You will code this test in the "GreetingResourceTest.java" file under the test/ folder.
+
+Use the example test case at the bottom of this README as a guide, and write tests for:
+``` 
+testGetAllGreetingsEndpoint
+testGetNotFound
+testAddingAnItem
+testUpdatingAnItem
+testDeletingAnItem
+```
+
+> Run "mvn test" as you're developing the tests. You can also test using your IDE if you wish.
+
+### SAMPLE REST TEST CASE
 
 ``` 
 @QuarkusTest
-@QuarkusTestResource(TestcontainersEnvironment.class)
-//@QuarkusTestResource(KafkaEnvironment.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ArticleResourceTest {
 
@@ -136,17 +176,6 @@ public class ArticleResourceTest {
       .body("size()", is(13));
   }
 ```
-> Remember that the above example uses JPA. For what you're doing here, you won't need @Transactional, and you will use the GreetingService to work with the "database"
-
-### 3. Implement tests for all of the endpoints  
-
-We've implemented testGetOne. Remember you are testing the actual endpoint results.
-
-You will code this test in the "GreetingResourceTest.java" file under the test/ folder.
-
-> Run "mvn test" as you're developing the tests. You can also test using your IDE if you wish.
-
-
 
 <p  align="center">
 	<font size="4">

@@ -29,4 +29,20 @@ public class GreetingResource {
         return "hello";
     }
 
+    // create a list to show some data
+    private List<String> greetingsInMultipleLangs = new ArrayList<String>() {{
+        add("Hello");
+        add("Salut");
+        add("Hola");
+        add("Nǐ hǎo");
+        add("How y'all doing?");
+    }};
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/multiple")
+    public List<String> multipleGreetings() {
+        return greetingsInMultipleLangs;
+    }
+
 }

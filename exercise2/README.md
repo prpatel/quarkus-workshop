@@ -1,4 +1,4 @@
-# Exercise 1b
+# Exercise 2
 ## Run and hack on a Quarkus project
 
 In this exercise, we will run a Quarkus project and play with it to get familiar with some basic commands and constructs!

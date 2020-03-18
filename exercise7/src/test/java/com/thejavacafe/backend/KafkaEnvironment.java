@@ -25,7 +25,6 @@ public class KafkaEnvironment implements QuarkusTestResourceLifecycleManager {
 
   @Override
   public void stop() {
-//    postgresqlContainer.stop();
 
   }
 }

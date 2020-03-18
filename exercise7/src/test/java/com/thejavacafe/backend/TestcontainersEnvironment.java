@@ -2,9 +2,12 @@ package com.thejavacafe.backend;
 
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.wait.strategy.WaitStrategy;
+import org.testcontainers.containers.wait.strategy.WaitStrategyTarget;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +16,22 @@ import java.util.Map;
 public class TestcontainersEnvironment implements QuarkusTestResourceLifecycleManager {
 
 
-  @Container
-  PostgreSQLContainer postgresqlContainer = new PostgreSQLContainer<>("postgres:10.5")
+  static PostgreSQLContainer postgresqlContainer = new PostgreSQLContainer<>("postgres:10-alpine")
     .withDatabaseName("quarkus")
     .withUsername("quarkus")
-    .withPassword("quarkus");
+    .withPassword("quarkus")
+          .waitingFor(new WaitStrategy() {
+            @Override
+            public void waitUntilReady(WaitStrategyTarget waitStrategyTarget) {
+
+            }
+
+            @Override
+            public WaitStrategy withStartupTimeout(Duration duration) {
+              return this;
+            }
+          })
+          .withReuse(true);
 
 
   @Override
